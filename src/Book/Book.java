@@ -1,6 +1,4 @@
 package Book;
-
-import java.net.URL;
 import java.util.Arrays;
 
 public class Book {
@@ -107,8 +105,6 @@ public class Book {
             c.print1();
         System.out.println("Хотя погодите, головной офис БХВ в Москве ");
     }
-
-
     public void print() {
 
 
