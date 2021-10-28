@@ -8,7 +8,7 @@ public class Book {
     private String[] Authors;
     private int Year;
 
-//
+
     public Book(String Namebook, Izd izd, String[] Authors, int Year) {
         setNamebook(Namebook);
         setYear(Year);
