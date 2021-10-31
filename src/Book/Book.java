@@ -1,32 +1,25 @@
 package Book;
+
 import java.util.Arrays;
 
 public class Book {
     private String Namebook;
     private Izd izd;
-    private String author;
     private String[] Authors;
     private int Year;
 
 
-    public Book(String Namebook, Izd izd, String[] Authors, int Year) {
+    public Book(String Namebook, int Year, Izd izd, String[] Authors) {
         setNamebook(Namebook);
         setYear(Year);
-        setAuthors(Authors);
         setizd(izd);
+        setAuthors(Authors);
     }
 
-    public Book(String Namebook, Izd izd, String author, int Year) {
-        this.Namebook = Namebook;
-        this.izd = izd;
-        this.Year = Year;
-        setauthor(author);
-    }
+    public Book(String namebook, Izd izd, String[] Authors, int Year) {
+        this(namebook, Year, izd, Authors);
 
-    public Book(String Namebook, int Year, Izd izd) {
-        this.Namebook = Namebook;
-        this.izd = izd;
-        this.Year = Year;
+
     }
 
     public String getNamebook() {
@@ -51,27 +44,13 @@ public class Book {
             throw new IllegalArgumentException("Поле издательство не должно быть пустым");
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setauthor(String author) {
-        if (author != null && !author.equals(""))
-            this.author = author;
-        else
-            throw new IllegalArgumentException("Поле автор не должно быть пустым");
-    }
-
 
     public String[] getAuthors() {
         return Authors;
     }
 
     public void setAuthors(String[] Authors) {
-        if (Authors != null)
-            this.Authors = Authors;
-        else
-            throw new IllegalArgumentException("Поле авторы не должно быть пустым");
+        this.Authors = Authors;
     }
 
 
@@ -85,48 +64,33 @@ public class Book {
         this.Year = Year;
     }
 
-    public void print1() {
-
-        if (this.author != null)
-            System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + " Издательство:" + getIzd().getNameizd() + ";" + "Год издания " + getYear());
-        else if (this.Authors != null)
-
-            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Авторы-" + Arrays.toString(getAuthors())
-                    + ";" + "Год издания:" + getYear());
-
-        else
-            System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + "Издательство:" + getIzd().getNameizd() + ";" + "Год издания " + getYear());
-           }
-
-
-
-    public static void printAllerror(Book[] book) {
-        for (Book c : book)
-            c.print1();
-        System.out.println("Хотя погодите, головной офис БХВ в Москве ");
+    public int getNumAuthors() {
+        return (Authors != null) ? Authors.length : 0;
     }
+
+    public String getAuthorsindex(int index) {
+        if (getAuthors().length == 0) {
+            return "";
+        }
+        if ((index < 0) || (index >= Authors.length)) {
+            throw new IllegalArgumentException("Длина индекса должена быть больше нуля и не должна превышать длину массива ");
+        }
+        return Authors[index];
+    }
+
     public void print() {
 
-
-        if (getIzd().getCity().equals("Санкт-Петербург")) {
-            getIzd().setCity("Москва");
-        }
-        if (this.author != null)
-            System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + " Издательство:" + getIzd().getNameizd() + ";" + "Год издания " + getYear());
-        else if (this.Authors != null)
-
-            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Авторы-" + Arrays.toString(getAuthors())
+        if (this.Authors != null)
+            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Автор-" + Arrays.toString(getAuthors())
                     + ";" + "Год издания:" + getYear());
-
         else
-            System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + "; "+ "Издательство:" + getIzd().getNameizd() + ";" + " Год издания " + getYear());
+            System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + "; " + "Издательство:" + getIzd().getNameizd() + ";" + " Год издания " + getYear());
 
     }
 
     public static void printAll(Book[] book) {
         for (Book c : book)
             c.print();
-        System.out.println("Во, так лучше!)");
     }
 
 }
