@@ -4,7 +4,7 @@ public class Args {
     public static void main(String[] args) {
         Izd izd1 = new Izd("Проспект", "Москва");
         Izd izd2 = new Izd("Питер", "Санкт-Петербург");
-        Izd izd3 = new Izd("БХВ", "Санкт-Петербург");
+        Izd izd3 = new Izd("БХВ", "Санкт-Петебург");
         Izd izd4 = new Izd("Диалектика", "Киев");
 
 
@@ -17,9 +17,11 @@ public class Args {
         };
 
         Book.printAll(book);
-        if (izd3.getCity().equals("Санкт-Петербург")) {
-            izd3.setCity("Москва");
-            System.out.println("Ошибка в городе издательства БХВ");
+        if (izd3.getNameizd().equals("БХВ")) {
+            izd3.setCity("Санкт-Петербург");
+
+            System.out.println("Ошибка в названии города ");
+
         }
         Book.printAll(book);
     }
