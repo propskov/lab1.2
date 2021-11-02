@@ -64,9 +64,6 @@ public class Book {
         this.Year = Year;
     }
 
-    public int getNumAuthors() {
-        return (Authors != null) ? Authors.length : 0;
-    }
 
     public String getAuthorsindex(int index) {
         if (getAuthors().length == 0) {
@@ -80,10 +77,10 @@ public class Book {
 
     public void print() {
 
-        if (this.Authors != null)
-            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Автор-" + Arrays.toString(getAuthors())
+        if (getAuthors() != null && getAuthors().length > 0)
+            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Автор(ы)-" + Arrays.toString(getAuthors())
                     + ";" + "Год издания:" + getYear());
-        else
+               else
             System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + "; " + "Издательство:" + getIzd().getNameizd() + ";" + " Год издания " + getYear());
 
     }

@@ -16,14 +16,6 @@ public class Izd {
         setNameizd(Nameizd);
     }
 
-    // * на потом
-    // Реальное время для сравнения с датой издания книги
-    //public static void main(String[] args) {
-    // Date date = new Date();
-    //  System.out.println(date.toString());
-    // }
-
-
     public String getNameizd() {
         return Nameizd;
     }
