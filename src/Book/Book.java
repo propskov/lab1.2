@@ -77,8 +77,11 @@ public class Book {
 
     public void print() {
 
-        if (getAuthors() != null && getAuthors().length > 0)
-            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Автор(ы)-" + Arrays.toString(getAuthors())
+        if (getAuthors() != null && getAuthors().length ==1 )
+            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Автор-" + Arrays.toString(getAuthors())
+                    + ";" + "Год издания:" + getYear());
+        else if (getAuthors() != null && getAuthors().length ==2 )
+            System.out.println("Книга - " + getNamebook() + " Город издательства:" + getIzd().getCity() + ";" + " Издательство:" + getIzd().getNameizd() + ";" + " Авторы-" + Arrays.toString(getAuthors())
                     + ";" + "Год издания:" + getYear());
                else
             System.out.println("Книга-" + getNamebook() + " Город издательства:" + getIzd().getCity() + "; " + "Издательство:" + getIzd().getNameizd() + ";" + " Год издания " + getYear());
